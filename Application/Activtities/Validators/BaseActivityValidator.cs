@@ -1,4 +1,5 @@
 using System;
+using Application.Activities.DTOs;
 using Application.Activtities.DTOs;
 using FluentValidation;
 

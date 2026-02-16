@@ -1,4 +1,5 @@
 using System;
+using Application.Activities.DTOs;
 
 namespace Application.Activtities.DTOs;
 

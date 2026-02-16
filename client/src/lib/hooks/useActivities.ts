@@ -25,7 +25,7 @@ export const useActivities = (id?: string) => {
 })
 
 const createActivity = useMutation({
-    mutationFn: async (activity: Activity) => {
+    mutationFn: async (activity: Omit<Activity, "id" | "isCancelled">) => {
         const response = await agent.post("/activities", activity);
         return response.data;
     },
@@ -38,7 +38,7 @@ const createActivity = useMutation({
 
 const updateActivity = useMutation({
     mutationFn: async (activity: Activity) => {
-        await agent.put("activities", activity)
+        await agent.put("/activities", activity)
     },
     onSuccess: async () => {
         await queryClient.invalidateQueries({

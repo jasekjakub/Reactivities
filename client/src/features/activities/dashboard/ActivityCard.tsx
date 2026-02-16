@@ -1,7 +1,8 @@
-import { AccessTime, Place } from "@mui/icons-material";
+import { AccessTime, Place, Delete } from "@mui/icons-material";
 import { Avatar, Box, Button, Card, CardContent, CardHeader, Chip, Divider, Typography } from "@mui/material"
 import { Link} from "react-router";
 import { formatDate } from "../../../lib/util/util";
+import { useActivities } from "../../../lib/hooks/useActivities";
 
 type Props = {
     activity: Activity
@@ -9,11 +10,18 @@ type Props = {
 
 
 export default function ActivityCard({activity}: Props) {
+    const { deleteActivity } = useActivities();
     const isHost = false;
     const isGoing = false;
     const label = isHost ? "You are hosting" : "You are going";
     const isCancelled = false;
     const color = isHost ? "secondary" : isGoing ? "warning" : "default";
+
+    const handleDelete = () => {
+        if (window.confirm('Are you sure you want to delete this activity?')) {
+            deleteActivity.mutate(activity.id);
+        }
+    };
 
 
 
@@ -62,18 +70,31 @@ export default function ActivityCard({activity}: Props) {
             
         </CardContent>
         <CardContent sx={{ pb: 2}}>
-            <Typography variant="body2">
+            <Typography variant="body2" mb={2}>
                 {activity.description}
             </Typography>
-                <Button 
-                    component = {Link}
-                     to={`/activities/${activity.id}`}
-                     size="medium"
-                     variant="contained"
-                     sx={{display:"flex", justifySelf: "self-end", borderRadius: 3}}
-                     >
-                        View
+            <Box display="flex" gap={2} justifyContent="flex-end">
+                <Button
+                    component={Link}
+                    to={`/activities/${activity.id}`}
+                    size="medium"
+                    variant="contained"
+                    sx={{borderRadius: 3}}
+                >
+                    View
                 </Button>
+                <Button
+                    onClick={handleDelete}
+                    size="medium"
+                    variant="outlined"
+                    color="error"
+                    startIcon={<Delete />}
+                    disabled={deleteActivity.isPending}
+                    sx={{borderRadius: 3}}
+                >
+                    {deleteActivity.isPending ? 'Deleting...' : 'Delete'}
+                </Button>
+            </Box>
         </CardContent>
     </Card>
   )

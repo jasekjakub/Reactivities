@@ -1,5 +1,6 @@
 using System;
 using System.Security.Cryptography.X509Certificates;
+using Application.Activities.DTOs;
 using Application.Activtities.Commands;
 using Application.Activtities.DTOs;
 using Application.Activtities.Queries;
