@@ -7,7 +7,11 @@
       "Bash(dotnet script:*)",
       "Bash(powershell -Command \"\n$conn = [System.Data.SQLite.SQLiteConnection]::new\\(''Data Source=C:\\\\Users\\\\kamib\\\\OneDrive\\\\Plocha\\\\Reactivities\\\\Reactivities\\\\API\\\\reactivities.db''\\)\n\")",
       "Bash(dotnet build:*)",
-      "Bash(dotnet ef migrations:*)"
+      "Bash(dotnet ef migrations:*)",
+      "Bash(gh api:*)",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:api.github.com)",
+      "WebFetch(domain:raw.githubusercontent.com)"
     ]
   }
 }
