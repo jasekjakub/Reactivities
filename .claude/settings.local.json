@@ -15,7 +15,12 @@
       "Bash(curl:*)",
       "Bash(dotnet add package:*)",
       "Bash(npm install:*)",
-      "Bash(npx tsc:*)"
+      "Bash(npx tsc:*)",
+      "Bash(taskkill:*)",
+      "Bash(cmd /c:*)",
+      "Bash(powershell -Command \"Stop-Process -Id 45652 -Force -ErrorAction SilentlyContinue; Get-Process dotnet -ErrorAction SilentlyContinue | Stop-Process -Force\")",
+      "Bash(powershell -Command:*)",
+      "Bash(powershell -ExecutionPolicy Bypass -File \"C:/Users/kubaj/Desktop/Reactivities/fix_migration.ps1\")"
     ]
   }
 }

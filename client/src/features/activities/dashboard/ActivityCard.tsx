@@ -1,5 +1,5 @@
 import { AccessTime, Place, Delete } from "@mui/icons-material";
-import { Box, Button, Card, CardContent, CardHeader, Chip, Divider, Typography } from "@mui/material"
+import { Avatar, Box, Button, Card, CardContent, CardHeader, Chip, Divider, Typography } from "@mui/material"
 import { Link} from "react-router";
 import { formatDate } from "../../../lib/util/util";
 import { useActivities } from "../../../lib/hooks/useActivities";
